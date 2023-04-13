@@ -10,3 +10,8 @@
 //add an employee: I am prompted to enter the employee’s first name, last name, role, and manager, and that employee is added to the database
 //update an employee role: prompted to select an employee to update and their new role and this information is updated in the database
 //need to install inquirer, sql2, and console.table
+
+
+// You might want to use a separate file that contains functions for performing specific SQL queries you'll 
+//need to use. A constructor function or class could be helpful for organizing these. You might also want to
+// include a seeds.sql file to pre-populate your database, making the development of individual features much easier.
