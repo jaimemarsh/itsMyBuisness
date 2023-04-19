@@ -6,7 +6,7 @@ const questions = [{
     message: "What would you like to do?",
     choices: [
         new inquirer.Separator("===VIEW INFO ==="),
-        "View all employees",
+        'View all employees',
         'View employees by manager',
         'View all roles',
         'View all departments',
