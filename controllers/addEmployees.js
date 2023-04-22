@@ -45,7 +45,7 @@ const addEmployee = (askTask) => {
                             first_name: answers.firstName,
                             last_name: answers.lastName,
                             role_id: Number(answers.roleId),
-                            manager_id: Number(answers.managerId)
+                            manager_id: Number(answers.managerId) //ERROR
                         },
                         function (err) {
                             if (err) throw err;

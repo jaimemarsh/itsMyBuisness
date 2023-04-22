@@ -30,4 +30,14 @@ const getAllDepartments = async () => {
     }
 };
 
-module.exports = { getAllEmployees, getAllRoles, getAllDepartments }
+const getAllManagers = async () => {
+    try {
+        const rows = await queryAsync("SELECT * FROM employees WHERE manager_id IS NOT NULL");
+        return rows.map((manager) => ({name: `${manager.first_name} ${manager.last_name}`, value: manager.id}));
+    } catch (err) {
+        console.log('Err at getAllManagers:', err);
+    }
+};
+
+
+module.exports = { getAllEmployees, getAllRoles, getAllDepartments, getAllManagers }
