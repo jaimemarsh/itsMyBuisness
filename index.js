@@ -1,3 +1,4 @@
+//finished
 const inquirer = require('inquirer');
 const CTable = require('console.table');
 const questions = require('./controllers/questions');
@@ -9,7 +10,10 @@ const addDepartment = require('./controllers/addDepartment');
 // const toDeleteEmployee = require('./controllers/deleteEmployee');
 // const toDeleteRole = require('./controllers/deleteRole');
 // const toDeleteDept = require('./controllers/deleteDepartment');
+// const viewByMng = require('./controllers/viewByMng')
 
+const dal = require('./controllers/dal');
+const queries = require('./db/queries');
 
 const promptUser = () => {
     inquirer

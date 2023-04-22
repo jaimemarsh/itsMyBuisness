@@ -1,3 +1,4 @@
+//finished, error about manager
 const inquirer = require('inquirer');
 const connection = require('../config/db.js');
 
