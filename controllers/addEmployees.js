@@ -20,3 +20,5 @@ const addEmployee = (askTask) => {
 
 
 }
+
+module.exports = addEmployee;
