@@ -1,9 +1,7 @@
-
-
-
+//finished
 const queries = {
     allEmployees:
-        `SELECT e.id, e.first_name, e.last_name, title, dept_name AS department, salary, CONCAT(m.first_name, ' ', m.last_name) AS manager
+        `SELECT e.id, e.first_name, e.last_name, title, department_name AS department, salary, CONCAT(m.first_name, ' ', m.last_name) AS manager
         FROM employees e
         INNER JOIN roles
         ON e.role_id = roles.id
@@ -12,7 +10,7 @@ const queries = {
         LEFT JOIN employees m
         ON e.manager_id = m.id;`,
 
-    allEmployeesByMng: `SELECT e.id, e.first_name, e.last_name, title, dept_name AS department, salary, CONCAT(m.first_name, ' ', m.last_name) AS manager
+    allEmployeesByManager: `SELECT e.id, e.first_name, e.last_name, title, department_name AS department, salary, CONCAT(m.first_name, ' ', m.last_name) AS manager
         FROM employees e
         INNER JOIN roles
         ON e.role_id = roles.id
@@ -24,13 +22,13 @@ const queries = {
 
 
     allRoles:
-        `SELECT roles.id, title, salary, dept_name AS department
+        `SELECT roles.id, title, salary, department_name AS department
         FROM roles
         INNER JOIN departments
         ON roles.department_id = departments.id;`,
 
-    allDepts:
-        `SELECT id, dept_name AS department
+    allDepartments:
+        `SELECT id, department_name AS department
         FROM departments;`,
 
     deleteId:

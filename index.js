@@ -3,14 +3,14 @@ const inquirer = require('inquirer');
 const CTable = require('console.table');
 const questions = require('./controllers/questions');
 
+
 const addEmployee = require('./controllers/addEmployees');
 const addDepartment = require('./controllers/addDepartment');
-//unfinished
-// const addRole = require('./controllers/addRole');
-// const toDeleteEmployee = require('./controllers/deleteEmployee');
-// const toDeleteRole = require('./controllers/deleteRole');
-// const toDeleteDept = require('./controllers/deleteDepartment');
-// const viewByMng = require('./controllers/viewByMng')
+const addRole = require('./controllers/addRole');
+const toDeleteEmployee = require('./controllers/deleteEmployee');
+const toDeleteRole = require('./controllers/deleteRole');
+const toDeleteDepartment = require('./controllers/deleteDepartment');
+const viewByManager = require('./controllers/viewByManager')
 
 const dal = require('./controllers/dal');
 const queries = require('./db/queries');
@@ -23,8 +23,8 @@ const promptUser = () => {
             if (task === "view all employees") {
                 dal.viewAll(queries.allEmployees).then(() => promptUser())
             } else if (task === 'View employees by manager') {
-                viewByMng()
-                    .then((answers) => dal.viewAllBy(queries.allEmployeesByMng, 'm.id', answers.managerId))
+                viewByManager()
+                    .then((answers) => dal.viewAllBy(queries.allEmployeesByManager, 'm.id', answers.managerId))
                     .then(() => promptUser());
             } else if (task === 'View all roles') {
                 dal.viewAll(queries.allRoles)
@@ -53,8 +53,8 @@ const promptUser = () => {
                     .then((answers) => dal.deleteFrom(queries.deleteId, 'roles', Number(answers.roleToDelete)))
                     .then(() => promptUser());
             } else if (task === 'Delete department') {
-                toDeleteDept()
-                    .then((answers) => dal.deleteFrom(queries.deleteId, 'departments', Number(answers.deptToDelete)))
+                toDeleteDepartment()
+                    .then((answers) => dal.deleteFrom(queries.deleteId, 'departments', Number(answers.departmentToDelete)))
                     .then(() => promptUser());
             } else {
                 process.exit();

@@ -4,7 +4,7 @@ const connection = require('../config/db.js');
 
 const { getAllRoles, getAllManagers } = require('./getAll')
 
-const addEmployee = (askTask) => {
+const addEmployee = (promptUser) => {
 
     Promise.all([getAllRoles(), getAllManagers()])
         .then(([allRoles, allManagers]) =>
@@ -51,7 +51,7 @@ const addEmployee = (askTask) => {
                         function (err) {
                             if (err) throw err;
                             console.log("Your employee was added successfully!");
-                            askTask();
+                            promptUser();
                         }
                     );
                 } else {
@@ -65,7 +65,7 @@ const addEmployee = (askTask) => {
                         function (err) {
                             if (err) throw err;
                             console.log("Your manager was added successfully!");
-                            askTask();
+                            promptUser();
                         }
                     );
                 }

@@ -25,7 +25,7 @@ const getAllRoles = async () => {
 const getAllDepartments = async () => {
     try {
         const rows = await queryAsync("SELECT * FROM departments");
-        return rows.map((dept) => ({ name: department.deptartment_name, value: department.id }));
+        return rows.map((department) => ({ name: department.department_name, value: department.id }));
     } catch (err) {
         console.log(`Err at getAllDepartments,`, err);
     }
@@ -34,7 +34,7 @@ const getAllDepartments = async () => {
 const getAllManagers = async () => {
     try {
         const rows = await queryAsync("SELECT * FROM employees WHERE manager_id IS NOT NULL");
-        return rows.map((manager) => ({name: `${manager.first_name} ${manager.last_name}`, value: manager.id}));
+        return rows.map((manager) => ({ name: `${manager.first_name} ${manager.last_name}`, value: manager.id }));
     } catch (err) {
         console.log('Err at getAllManagers:', err);
     }
